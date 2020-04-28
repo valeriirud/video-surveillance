@@ -43,7 +43,7 @@ class OpenCV:
             return frame
         
         # compute the absolute difference between the current frame and 
-        # first frame
+        # previous frame
         frameDelta = cv2.absdiff(self.prevFrame, gray)
 
         thresh = cv2.threshold(frameDelta, 25, 255, cv2.THRESH_BINARY)[1]        
