@@ -1,6 +1,4 @@
-# pip3 uninstall opencv-python
-# pip3 install -U opencv-contrib-python==3.4.2.16
-# cv2.xfeatures2d.SURF_create
+
 import cv2
 
 class OpenCV:
@@ -51,13 +49,6 @@ class OpenCV:
         thresh = cv2.threshold(frameDelta, 25, 255, cv2.THRESH_BINARY)[1]        
         thresh = cv2.dilate(thresh, None, iterations=2)
         
-        # opencv 4.2
-        #cnts, hier = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL, 
-        #                              cv2.CHAIN_APPROX_SIMPLE)
-        # opencv contrib 3.4
-        #_, cnts, hier = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL, 
-        #                              cv2.CHAIN_APPROX_SIMPLE)
-        #_, cnts, hier = cv2.findContours(edges, cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
         _, cnts, hier = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
         
         for c in cnts:
